@@ -1,6 +1,5 @@
 NAME = verypossible/serverless
-SERVERLESS_VERSION = 1.60.4
-YARN_VERSION = 1.12.3
+SERVERLESS_VERSION = 1.67.0
 
 .PHONY:	all py3 shell
 
@@ -12,7 +11,6 @@ py3 :
 		-t $(NAME):$(SERVERLESS_VERSION) \
 		-f Dockerfile \
 		--build-arg SERVERLESS_VERSION=$(SERVERLESS_VERSION) \
-		--build-arg YARN_VERSION=$(YARN_VERSION) \
 		.
 
 py3-shell :

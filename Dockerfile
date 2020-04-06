@@ -1,4 +1,4 @@
-FROM python:3.6.6
+FROM python:3.7.6
 
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install -y \
@@ -21,12 +21,6 @@ RUN pip install \
 ARG SERVERLESS_VERSION
 RUN npm install -g \
     serverless@${SERVERLESS_VERSION}
-
-ARG YARN_VERSION
-RUN curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version ${YARN_VERSION}
-
-RUN echo "alias ll='ls -alFh --color=auto'" >> /root/.bashrc
-RUN echo "alias l='ls -alFh --color=auto'" >> /root/.bashrc
 
 # assuming that your serverless python libs live here
 RUN echo "export PYTHONPATH=/code/serverless/lib" >> /root/.bashrc
